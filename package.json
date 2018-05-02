@@ -1,15 +1,14 @@
 {
-  "name": "circleci-npm-packagecloud-test",
+  "name": "hello-world",
   "version": "0.1.0",
-  "description": "Test package for CircleCI 2.0 + packagecloud",
+  "description": "Print 'Hello world!'",
   "main": "hello.js",
   "scripts": {
-    "main": "node index.js",
     "test": "jest"
   },
-  "author": "Armando Canals",
-  "license": "MIT",
   "devDependencies": {
     "jest": "^22.2.1"
-  }
+  },
+  "author": "Armando Canals",
+  "license": "MIT"
 }
