@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  packagecloud: packagecloud/packagecloud@dev:0.0.7
+  packagecloud: packagecloud/packagecloud@dev:0.0.8
 
 defaults: &defaults
   working_directory: ~/repo
@@ -48,6 +48,7 @@ workflows:
           repo_fqname: "armando/test-orb"
           os_version: "node"
           package_path: "hello-world-0.1.1.tgz"
+          workspace_path: "~/repo"
           requires:
             - test
           filters:
