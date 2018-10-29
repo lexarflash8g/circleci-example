@@ -52,8 +52,7 @@ jobs:
           command: npm publish
             
 workflows:
-  version: 2
-  test-deploy:
+  build:
     jobs:
       - test
       - packagecloud/push:
