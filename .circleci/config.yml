@@ -27,6 +27,10 @@ jobs:
           name: Run tests
           command: npm test
 
+      - run:
+          name: Build package
+          command: npm build
+
       - save_cache:
           paths:
             - node_modules
