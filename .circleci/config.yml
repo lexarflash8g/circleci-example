@@ -29,7 +29,7 @@ jobs:
 
       - run:
           name: Build package
-          command: npm build
+          command: npm pack
 
       - save_cache:
           paths:
