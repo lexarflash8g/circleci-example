@@ -2,7 +2,9 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  packagecloud: packagecloud/packagecloud@dev:0.0.7
 
 defaults: &defaults
   working_directory: ~/repo
@@ -54,6 +56,12 @@ workflows:
   test-deploy:
     jobs:
       - test
+      - packagecloud/push:
+          requires:
+            - test
+          repo_fqname: "armando/test-orb"
+          os_version: "node"
+          package_path: "hello-world-0.1.1.tgz"
       - deploy:
           requires:
             - test
@@ -61,6 +69,4 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              only:
-                - master
-                - /rc-.*/
+              ignore: /.*/
