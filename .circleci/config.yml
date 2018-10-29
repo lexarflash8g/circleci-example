@@ -47,7 +47,7 @@ workflows:
       - packagecloud/push:
           repo_fqname: "armando/test-orb"
           os_version: "node"
-          package_path: "hello-world-0.1.1.tgz"
+          package_path: "./hello-world-0.1.1.tgz"
           workspace_path: "~/repo"
           requires:
             - test
