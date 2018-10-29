@@ -45,8 +45,11 @@ workflows:
     jobs:
       - test
       - packagecloud/push:
-          requires:
-            - test
           repo_fqname: "armando/test-orb"
           os_version: "node"
           package_path: "hello-world-0.1.1.tgz"
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
