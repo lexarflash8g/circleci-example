@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  packagecloud: packagecloud/packagecloud@dev:0.0.11
+  packagecloud: packagecloud/packagecloud@dev:0.0.12
 
 defaults: &defaults
   working_directory: ~/repo
@@ -44,11 +44,10 @@ workflows:
   build:
     jobs:
       - packagecloud/push:
-          e:
-            version: "2.3-jessie-node-browsers"
           name: "Upload package"
           repo-fqname: "armando/test-orb"
           os-version: "node"
           package-path: "./hello-world-0.1.2.tgz"
           build-steps:
+            - run: sudo apt-get install nodejs
             - run: npm pack
