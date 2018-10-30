@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  packagecloud: packagecloud/packagecloud@dev:0.0.10
+  packagecloud: packagecloud/packagecloud@dev:0.0.11
 
 defaults: &defaults
   working_directory: ~/repo
@@ -42,10 +42,10 @@ jobs:
             
 workflows:
   build:
-    executor:
-      version: "2.3-jessie-node-browsers"
     jobs:
       - packagecloud/push:
+          e:
+            version: "2.3-jessie-node-browsers"
           name: "Upload package"
           repo-fqname: "armando/test-orb"
           os-version: "node"
