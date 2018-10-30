@@ -14,6 +14,6 @@ workflows:
           name: "Upload package"
           repo-fqname: "armando/test-orb"
           os-version: "node"
-          package-path: "./hello-world-v0.1.2.tgz"
+          package-path: "./hello-world-0.1.2.tgz"
           build-steps:
             - run: npm pack
