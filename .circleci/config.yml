@@ -4,7 +4,7 @@
 #
 version: 2.1
 orbs:
-  packagecloud: packagecloud/packagecloud@dev:0.0.8
+  packagecloud: packagecloud/packagecloud@dev:0.0.9
 
 defaults: &defaults
   working_directory: ~/repo
@@ -43,14 +43,10 @@ jobs:
 workflows:
   build:
     jobs:
-      - test
       - packagecloud/push:
-          repo_fqname: "armando/test-orb"
-          os_version: "node"
-          package_path: "./hello-world-0.1.1.tgz"
-          workspace_path: "."
-          requires:
-            - test
-          filters:
-            tags:
-              only: /^v.*/
+          name: "Upload package"
+          repo-fqname: "armando/test-orb"
+          os-version: "node"
+          package-path: "./hello-world-0.1.2.tgz"
+          build-steps:
+            - run: npm pack
