@@ -49,4 +49,7 @@ workflows:
           os-version: "node"
           package-path: "./hello-world-v0.1.2.tgz"
           build-steps:
-            - run: sudo apt-get install yarn && yarn pack
+            - run: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+            - run: echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+            - run: sudo apt-get update && sudo apt-get install yarn
+            - run: yarn pack
