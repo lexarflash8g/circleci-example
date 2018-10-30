@@ -42,10 +42,10 @@ jobs:
             
 workflows:
   build:
+    executor:
+      version: "2.3-jessie-node-browsers"
     jobs:
       - packagecloud/push:
-          executor:
-            version: "2.3-jessie-node-browsers"
           name: "Upload package"
           repo-fqname: "armando/test-orb"
           os-version: "node"
