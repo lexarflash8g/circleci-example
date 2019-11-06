@@ -41,10 +41,10 @@ jobs:
           at: ~/repo
       - run:
           name: Set registry URL
-          command: npm set registry https://packagecloud.io/armando/node-test-package/npm/
+          command: npm set registry https://packagecloud.io/lexarflash8g/circle-ci-example/npm/
       - run:
           name: Authenticate with registry
-          command: echo "//packagecloud.io/armando/node-test-package/npm/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+          command: echo "//packagecloud.io/lexarflash8g/circle-ci-example/npm/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
       - run:
           name: Publish package
           command: npm publish
